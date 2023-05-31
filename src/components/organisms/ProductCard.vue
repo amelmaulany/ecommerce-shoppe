@@ -65,7 +65,8 @@
     .image-container {
         position: relative;
         width: 100%;
-        height: 300px;
+        min-width: 200px;
+        min-height: 200px;
         border-radius: 8px;
         overflow: hidden;
     }

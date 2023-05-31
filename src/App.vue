@@ -27,6 +27,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   padding: 48px 96px;   
 }
+
+@media(max-width: 650px) {
+  #app {
+    padding: 30px 45px;
+  }
+}
+
 .body {
   display: flex;
   flex-direction: column;

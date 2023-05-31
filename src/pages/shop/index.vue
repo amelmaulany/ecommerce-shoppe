@@ -1,6 +1,9 @@
 <template>
     <div class="page">
       <HeaderText :text="headerText" />
+      <div class="mobile-filter">
+        <MobileFilter />
+      </div>
       <div class="body">
         <div class="filter">
             <div class="search-bar">
@@ -45,6 +48,8 @@
     import DropDown from '../../components/molecules/DropDown.vue';
     import RangeSlider from '../../components/molecules/RangeSlider.vue';
     import SwitchButtonLabel from '../../components/molecules/SwitchButtonLabel.vue';
+    import MobileFilter from '../../components/molecules/MobileFilter.vue';
+
     import ProductCard from '../../components/organisms/ProductCard.vue';
 
     import Img01 from '../../assets/product-img/img-01.svg';
@@ -64,6 +69,7 @@
             RangeSlider,
             SwitchButtonLabel,
             ProductCard,
+            MobileFilter,
         },
         data() {
             return {
@@ -160,6 +166,9 @@
     .title {
         margin-top: 56px;
     }
+    .mobile-filter {
+        display: none;
+    }
     .body {
         display: flex;
         flex-direction: row;
@@ -171,19 +180,79 @@
     .filter {
         display: flex;
         flex-direction: column;
-        min-width: 100px;
+        min-width: 80px;
         gap: 16px;
         max-width: 350px;
+        align-items: stretch;
     }
+
     .search-bar {
         margin-bottom: 18px;
     }
 
-    .product-list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        width: 80%;
+    @media(max-width: 650px) {
+        .filter {
+            display: none;
+        }
+        .title {
+            margin-top: 20px;
+        }
+        .body {
+            gap: 0px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+        .mobile-filter {
+            display: flex;
+        }
     }
+
+    @media(min-width: 900px) {
+        .filter {
+            width: 200px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            width: 50%;
+        }
+    }
+    @media(min-width: 1000px) {
+        .filter {
+            width: 250px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 60%;
+        }
+    }
+
+    @media(min-width: 1200px) {
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+        }
+    }
+
+    @media(min-width: 1400px) {
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 80%;
+        }
+    }
+    
+
+    
 </style>
   

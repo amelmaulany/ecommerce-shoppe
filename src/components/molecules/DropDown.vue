@@ -82,7 +82,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 8px;
-        width: 261px;
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -100,7 +100,7 @@
         border: 1px solid #ccc;
         background-color: #fff;
         border-radius: 4px;
-        width: 261px;
+        width: 100%;
     }
     .options li {
         padding: 8px;

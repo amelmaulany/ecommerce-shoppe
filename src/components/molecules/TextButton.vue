@@ -1,10 +1,10 @@
 <template>
     <button
-      class="text-button"
+      class="button-component"
       @click="handleClick"
-      :class="clicked ? 'underline' : ''"
+      :class="clicked ? 'active-menu' : ''"
     >
-        {{ buttonText }}
+        <span class="textbtn" :class="clicked ? 'active-menu' : ''">{{ buttonText }}</span>
     </button>
 </template>
 
@@ -24,33 +24,34 @@
         },
         methods: {
             handleClick() {
+                console.log('click');
                 this.$emit('click');
             },
+        },
+        mounted() {
+            console.log('mounted', this.clicked);
         }
     }
 </script>
 
 <style>
- .text-button {
+ .button-component {
     background-color: transparent;
-    border: none;
     padding: 40px;
     cursor: pointer;
     padding: 0;
     height: 100%;
  }
- .text {
-    display: inline-block;
+ .textbtn {
     color: #000;
+    display: inline-block;
+    padding: 5px 10px;
+    white-space: nowrap;
  }
- .text:hover {
+ .textbtn:hover {
     color: #707070;
  }
- .clicked {
-    border-bottom: 2px solid #000;
- }
-
- .underline {
+ .active-menu {
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
     text-underline-offset: 25px;

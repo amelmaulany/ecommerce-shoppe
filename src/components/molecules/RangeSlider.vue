@@ -61,7 +61,7 @@
     .range_container {
         display: flex;
         flex-direction: column;
-        width: 261px;
+        width: inherit;
         margin-top: 16px;
     }
 
@@ -78,7 +78,7 @@
         font-size: 24px;
         color: #635a5a;
         gap: 5px;
-        width: 100%;
+        width: fit-content;
     }
 
     input[type=range]::-webkit-slider-thumb {
@@ -158,6 +158,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        width: inherit;
+        flex-wrap: wrap;
     }
 
     .filter-font {

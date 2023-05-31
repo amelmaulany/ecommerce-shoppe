@@ -1,5 +1,11 @@
 <template>
     <div class="search-bar">
+        <IconButton
+          class="icon-button"
+          :icon="icon"
+          :active="true"
+          @click="handleSearch"
+        />
         <input
           type="text"
           class="search-input"
@@ -8,12 +14,7 @@
           @focus="handleInputFocus"
           @blur="handleInputBlur" 
         />
-        <IconButton
-          class="icon-button"
-          :icon="icon"
-          :active="true"
-          @click="handleSearch"
-        />
+        
     </div>
 </template>
 
@@ -21,7 +22,7 @@
     import IconButton from './IconButton.vue';
 
     export default {
-        name: 'InputBar',
+        name: 'MobileInputBar',
         components: {
             IconButton,
         },
@@ -61,20 +62,25 @@
 </script>
 
 <style scoped>
+    .icon-button {
+        margin: 0 10px;
+    }
     .search-bar {
         display: flex;
         flex-direction: row;
         align-items: center;
-        border-bottom: 1px solid #ccc;
-        padding: 4px;
+        background-color: #EFEFEF;
+        border-radius: 4px;
+        padding: 10px;
         width: 100%;
     }
     .search-input {
         flex: 1;
         border: none;
         outline: none;
-        padding: 4px;
-        font-size: 14px;
+        padding: 20px;
+        font-size: 20px;
+        background-color: #efefef;
     }
     .search-button {
         background-color: transparent;
