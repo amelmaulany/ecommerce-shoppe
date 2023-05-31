@@ -39,21 +39,34 @@
                 type: String,
                 default: ''
             },
+            isOpen: {
+                type: Boolean,
+                default: false,
+            },
+        },
+        computed: {
+            internalIsOpen: {
+                get() {
+                    return this.isOpen;
+                },
+                set(value) {
+                    this.$emit('update:isOpen', value);
+                }
+            },
         },
         data() {
             return {
-                isOpen: false,
+                // isOpen: false,
                 ArrowDownIcon,
             };
         },
         methods: {
             toggleDropdown() {
-                console.log('toogle open');
-                this.isOpen = !this.isOpen;
+                this.internalIsOpen = !this.internalIsOpen;
             },
             selectOption(option) {
                 this.$emit('update:selectedOption', option);
-                this.isOpen = false;
+                this.internalIsOpen = false;
             },
         },
         }
@@ -83,7 +96,9 @@
         padding: 0;
         margin: 0;
         margin-top: 10px;
+        z-index: 99;
         border: 1px solid #ccc;
+        background-color: #fff;
         border-radius: 4px;
         width: 261px;
     }
@@ -95,7 +110,7 @@
         background-color: #f2f2f2;
     }
     .dropdown-button {
-        background-color: transparent;
+        background-color: #fff;
         border: none;
         outline: none;
         cursor: pointer;

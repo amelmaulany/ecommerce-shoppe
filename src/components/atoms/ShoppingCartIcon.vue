@@ -7,9 +7,11 @@
 </template>
 
 <script>
-export default {
-    name: 'ShoppingCartIcon',
-}
+    import { markRaw } from 'vue';
+
+    export default markRaw({
+        name: 'ShoppingCartIcon',
+    })
 </script>
 
 <style></style>

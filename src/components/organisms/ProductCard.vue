@@ -1,12 +1,12 @@
 <template>
     <div class="product-card">
-        <div class="product-tags">
-            <TagProduct :text="tags" v-if="tags"></TagProduct>
+        <div class="image-container">
+            <TagProduct :text="tags" v-if="tags" class="tag-stick" />
+            <img :src="image" :alt="name" class="product-image" />
         </div>
-        <img :src="image" :alt="name" class="product-image">
         <div class="product-info">
-            <product-name :text="name"></product-name>
-            <product-price :text="price"></product-price>
+            <product-name :text="name" />
+            <product-price :text="price" />
         </div>
     </div>
 </template>
@@ -61,21 +61,48 @@
         height: 392px;
         gap: 16px;
     }
-    .product-image {
+
+    .image-container {
+        position: relative;
         width: 100%;
         height: 300px;
         border-radius: 8px;
-        margin-right: 16px;
+        overflow: hidden;
     }
+
+    .tag-stick {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .product-info {
         display: flex;
         flex-direction: column;
         padding-left: 5px;
     }
-    .product-tags {
-        position:absolute;
-        margin-left: 20px;
-        margin-top: 16px;
-        flex-direction: row;
+
+    .tag {
+        background-color: #a18a68;
+        border-radius: 4px;
+        padding: 2px 8px;
+        display: inline-block;
+    }
+    .text {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
     }
 </style>

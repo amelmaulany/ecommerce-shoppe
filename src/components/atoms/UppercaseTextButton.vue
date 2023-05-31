@@ -27,6 +27,6 @@
     }
     .uppercase-text:active {
         color: #707070;
-        font-weight: 700;
+        font-weight: 400;
     }
 </style>

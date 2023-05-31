@@ -6,7 +6,9 @@
 </template>
 
 <script>
-    export default {
+    import { markRaw } from 'vue';
+
+    export default markRaw({
         name: 'SearchIcon',
-    }
+    })
 </script>

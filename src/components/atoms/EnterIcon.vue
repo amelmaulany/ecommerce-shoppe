@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {
-    name: 'EnterIcon',
-}
+    import { markRaw } from 'vue';
+
+    export default markRaw({
+        name: 'EnterIcon',
+    })
 </script>

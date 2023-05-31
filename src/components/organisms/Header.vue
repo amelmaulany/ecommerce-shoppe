@@ -1,17 +1,42 @@
 <template>
     <div class="header-bar">
-        <Logo></Logo>
+        <Logo />
         <div class="nav-button">
             <div class="text-button">
-                <TextButton :is-clicked="isShopClicked" :button-text="shopButton" @click="handleShopClicked" />
-                <TextButton :is-clicked="isBlogClicked" :button-text="blogButton" @click="handleBlogClicked" />
-                <TextButton :is-clicked="isOurStoryClicked" :button-text="ourStoryButton" @click="handleStoryClicked" />
+                <TextButton
+                    :clicked="isShopActive"
+                    :buttonText="shopButton"
+                    @click="handleChangeShop"
+                />
+                <TextButton
+                    :clicked="isBlogActive"
+                    :buttonText="blogButton"
+                    @click="handleChangeBlog"
+                />
+                <TextButton 
+                    :clicked="isOurStoryActive"
+                    :buttonText="ourStoryButton"
+                    @click="handleChangeOurStory"
+                />
             </div>
-                <div class="divider"></div>
+
+            <div class="divider"></div>
             <div class="icon-button">
-                <IconButton :icon="SearchIcon" :active="true" />
-                <IconButton :icon="ShoppingCartIcon" :active="true" />
-                <IconButton :icon="AccountIcon" :active="true" />
+                <UnderlineIconButton
+                    :icon="SearchIcon"
+                    :active="isSearchActive"
+                    @click="handleSearch"
+                />
+                <UnderlineIconButton
+                    :icon="ShoppingCartIcon"
+                    :active="isShoppingCartActive"
+                    @click="handleShoppingCart"
+                />
+                <UnderlineIconButton
+                    :icon="AccountIcon"
+                    :active="isAccountActive" 
+                    @click="handleAccount"
+                />
             </div>
         </div>
     </div>
@@ -19,7 +44,8 @@
 
 
 <script>
-    import IconButton from '../molecules/IconButton.vue';
+
+    import UnderlineIconButton from '../molecules/UnderlineIconButton.vue';
     import SearchIcon from '../atoms/SearchIcon.vue';
     import ShoppingCartIcon from '../atoms/ShoppingCartIcon.vue';
     import AccountIcon from '../atoms/AccountIcon.vue';
@@ -29,37 +55,77 @@
     export default {
         name: 'HeaderBar',
         components: {
-            IconButton,
+            UnderlineIconButton,
             Logo,
             TextButton,
         },
         methods: {
-            handleShopClicked() {
-                this.isShopClicked = !this.isShopClicked;
-                console.log(this.isShopClicked);
+            handleChangeShop() {
+                this.isShopActive = true;
+                this.isBlogActive = false;
+                this.isOurStoryActive = false;
+                this.isSearchActive = false;
+                this.isShoppingCartActive = false;
+                this.isAccountActive = false;
             },
-            handleBlogClicked() {
-                this.isBlogClicked = !this.isBlogClicked;
+            handleChangeBlog() {
+                this.isShopActive = false;
+                this.isBlogActive = true;
+                this.isOurStoryActive = false;
+                this.isSearchActive = false;
+                this.isShoppingCartActive = false;
+                this.isAccountActive = false;
             },
-            handleStoryClicked() {
-                this.isOurStoryClicked = !this.isOurStoryClicked;
+            handleChangeOurStory() {
+                this.isShopActive = false;
+                this.isBlogActive = false;
+                this.isOurStoryActive = true;
+                this.isSearchActive = false;
+                this.isShoppingCartActive = false;
+                this.isAccountActive = false;
             },
+            handleSearch() {
+                console.log('handleserach');
+                this.isShopActive = false;
+                this.isBlogActive = false;
+                this.isOurStoryActive = false;
+                this.isSearchActive = true;
+                this.isShoppingCartActive = false;
+                this.isAccountActive = false;
+            },
+            handleShoppingCart() {
+                this.isShopActive = false;
+                this.isBlogActive = false;
+                this.isOurStoryActive = false;
+                this.isSearchActive = false;
+                this.isShoppingCartActive = true;
+                this.isAccountActive = false;
+            },
+            handleAccount() {
+                this.isShopActive = false;
+                this.isBlogActive = false;
+                this.isOurStoryActive = false;
+                this.isSearchActive = false;
+                this.isShoppingCartActive = false;
+                this.isAccountActive = true;
+            }
         },
         data() {
             return {
                 SearchIcon,
                 ShoppingCartIcon,
                 AccountIcon,
-                isShopClicked: false,
                 shopButton: 'Shop',
-
-                isBlogClicked: false,
                 blogButton: 'Blog',
-
-                isOurStoryClicked: false,
                 ourStoryButton: 'Our Story',
+                isShopActive: true,
+                isBlogActive: false,
+                isOurStoryActive: false,
+                isSearchActive: false,
+                isShoppingCartActive: false,
+                isAccountActive: false,
             }
-        }
+        },
     }
 </script>
 
@@ -73,7 +139,7 @@
         border-bottom: 1px solid #e0e0e0;
         width: 100%;
         padding: 30px;
-        padding-bottom: 40px;
+        /* padding-bottom: 40px; */
     }
     .nav-button {
         display: flex;
@@ -109,4 +175,9 @@
         background-color: #707070;
         margin: 0 40px;
     }
+    .text-button .active {
+        text-decoration: underline;
+        /* border-bottom: 1px solid #000; */
+    }
+
 </style>

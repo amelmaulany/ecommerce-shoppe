@@ -1,17 +1,21 @@
 <template>
     <button
-      class="['text-button', {'clicked': isClicked }]"
+      class="text-button"
+      @click="handleClick"
+      :class="clicked ? 'underline' : ''"
     >
-        <span class="text">{{ buttonText }}</span>
+        {{ buttonText }}
     </button>
 </template>
 
 <script>
     export default {
+        name: 'TextButton',
         props: {
-            isClicked: {
+            clicked: {
                 type: Boolean,
                 required: true,
+                default: false,
             },
             buttonText: {
                 type: String,
@@ -19,6 +23,9 @@
             }
         },
         methods: {
+            handleClick() {
+                this.$emit('click');
+            },
         }
     }
 </script>
@@ -43,7 +50,10 @@
     border-bottom: 2px solid #000;
  }
 
- .text-button.underline .text {
+ .underline {
     text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 25px;
  }
+
 </style>

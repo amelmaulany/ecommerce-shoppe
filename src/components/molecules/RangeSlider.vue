@@ -10,14 +10,14 @@
             <div class="form_control_container">
                 <div class="price-range-desc">
                     <p>$</p>
-                    <input class="form_control_container__time__input" type="text" id="fromInput" value="40" min="0" max="1000"/>
+                    <input class="form_control_container__time__input" type="text" disabled id="fromInput" value="40" />
                 </div>
             </div>
-            -
+            <div class="range-separator">-</div>
             <div class="form_control_container">
                 <div class="price-range-desc">
                     <p>$</p>
-                    <input class="form_control_container__time__input" type="text" id="toInput" value="180" min="0" max="1000"/>
+                    <input class="form_control_container__time__input" type="text" disabled id="toInput" value="180" />
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
             toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
             fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
             toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
-        }
+        },
         
                 }
 </script>
@@ -113,7 +113,8 @@
 
     input[type="text"] {
         color: #707070;
-        width: 30px;
+        background-color: #fff;
+        width: 35px;
         height: 30px;
         font-size: 14px;
         border: none;
@@ -163,6 +164,10 @@
         font-size: 14px;
         color: #A18A68;
         cursor: pointer;
+    }
+
+    .range-separator {
+        margin-left: -8px;
     }
 
 </style>

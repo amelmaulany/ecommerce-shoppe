@@ -62,12 +62,11 @@ export function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
   const toPosition = to.value - to.min;
   controlSlider.style.background = `linear-gradient(
       to right,
-      ${sliderColor} 0%,
       ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
       ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-      ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-      ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-      ${sliderColor} 100%)`;
+      ${rangeColor} ${(toPosition / rangeDistance) * 100}%,
+      ${sliderColor} ${(toPosition / rangeDistance) * 100}% 
+    )`;
 }
 
 export function setToggleAccessible(currentTarget) {

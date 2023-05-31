@@ -7,7 +7,7 @@
         name: 'ProductPrice',
         props: {
             text: {
-                type: String,
+                type: Number,
                 required: true,
             }
         }

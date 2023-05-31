@@ -1,6 +1,5 @@
 <template>
     <div class="page">
-      <CapsTextButton />
       <HeaderText :text="headerText" />
       <div class="body">
         <div class="filter">
@@ -10,12 +9,16 @@
             <DropDown 
                 :options="shopByOptions" 
                 :selectedOption="selectedShopByOption"
-                @update:selectedOption="updateShopOption"
+                :isOpen="isShopDropdownOpen"
+                @update:selectedOption="onSelectShopChange"
+                @update:isOpen="onShopDropdownStateChange"
             />
             <DropDown 
                 :options="sortByOptions" 
                 :selectedOption="selectedSortByOption"
-                @update:selectedOption="updateSort"
+                :isOpen="isSortDropdownOpen"
+                @update:selectedOption="onSelectSortChange"
+                @update:isOpen="onSortDropdownStateChange"
             />
             <RangeSlider />
             <SwitchButtonLabel :text="onSaleText" />
@@ -43,7 +46,6 @@
     import RangeSlider from '../../components/molecules/RangeSlider.vue';
     import SwitchButtonLabel from '../../components/molecules/SwitchButtonLabel.vue';
     import ProductCard from '../../components/organisms/ProductCard.vue';
-    import CapsTextButton from '../../components/atoms/UppercaseTextButton.vue';
 
     import Img01 from '../../assets/product-img/img-01.svg';
     import Img02 from '../../assets/product-img/img-02.svg';
@@ -62,12 +64,13 @@
             RangeSlider,
             SwitchButtonLabel,
             ProductCard,
-            CapsTextButton,
         },
         data() {
             return {
                 placeholderSearch: 'Search...',
                 iconSearch: SearchIcon,
+                isShopDropdownOpen: false,
+                isSortDropdownOpen: false,
                 shopByOptions: [
                     'All',
                     'Bags',
@@ -123,10 +126,25 @@
             }
         },
         methods: {
-            updateShopOption(option) {
-                console.log(option);
+            onSelectShopChange(option) {
                 this.selectedShopByOption = option;
+                this.isShopDropdownOpen = true;
+                this.isSortDropdownOpen = false;
             },
+            onShopDropdownStateChange(isOpen) {
+                this.isShopDropdownOpen = isOpen;
+                if (isOpen) this.isSortDropdownOpen = false;
+            },
+            onSelectSortChange(option) {
+                this.selectedSortByOption = option;
+                this.isSortDropdownOpen = true;
+                this.isShopDropdownOpen = false;
+            },
+            onSortDropdownStateChange(isOpen) {
+                this.isSortDropdownOpen = isOpen;
+                if (isOpen) this.isShopDropdownOpen = false;
+            },
+
         }
     }
 </script>
