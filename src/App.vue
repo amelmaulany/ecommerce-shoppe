@@ -1,6 +1,6 @@
 <template>
   <Header></Header>
-  <ShopPage />
+  <router-view></router-view>
   <Footer></Footer>
 </template>
 
@@ -8,13 +8,13 @@
 import Header from './components/organisms/Header.vue'
 import Footer from './components/organisms/Footer.vue'
 
-import ShopPage from './pages/shop/index.vue';
+// import ShopPage from './pages/shop/index.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    ShopPage,
+    // ShopPage,
     Footer,
   },
 }

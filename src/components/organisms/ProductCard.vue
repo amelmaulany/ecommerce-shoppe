@@ -2,7 +2,7 @@
     <div class="product-card">
         <div class="image-container">
             <TagProduct :text="tags" v-if="tags" class="tag-stick" />
-            <img :src="image" :alt="name" class="product-image" />
+            <ProductImage :image="image" :alt="name" />
         </div>
         <div class="product-info">
             <product-name :text="name" />
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import ProductImage from '../atoms/ProductImage.vue'
     import ProductName from '../atoms/ProductName.vue'
     import ProductPrice from '../atoms/ProductPrice.vue'
     import TagProduct from '../atoms/Tag.vue'
@@ -22,6 +23,7 @@
             ProductName,
             ProductPrice,
             TagProduct,
+            ProductImage,
         },
         props: {
             name: {
@@ -83,10 +85,8 @@
         font-weight: 400;
     }
 
-    .product-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .product-card:hover {
+        cursor: pointer;
     }
 
     .product-info {

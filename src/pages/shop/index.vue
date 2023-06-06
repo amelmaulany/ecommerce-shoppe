@@ -29,12 +29,13 @@
         </div>
         <div class="product-list">
             <ProductCard
-              v-for="product of productArr"
+              v-for="product of products"
               :key="product.name" 
               :name="product.name"
               :image="product.image"
               :price="product.price"
               :tags="product.tags"
+              @click="navigateToShopDetail(product.id)"
             />
         </div>
       </div>
@@ -51,14 +52,9 @@
     import MobileFilter from '../../components/molecules/MobileFilter.vue';
 
     import ProductCard from '../../components/organisms/ProductCard.vue';
-
-    import Img01 from '../../assets/product-img/img-01.svg';
-    import Img02 from '../../assets/product-img/img-02.svg';
-    import Img03 from '../../assets/product-img/img-03.svg';
-    import Img04 from '../../assets/product-img/img-04.svg';
-    import Img05 from '../../assets/product-img/img-05.svg';
-
     import SearchIcon from '../../components/atoms/SearchIcon.vue';
+
+    import { mapGetters } from 'vuex';
 
     export default {
         name: 'ShopPage',
@@ -95,40 +91,6 @@
                 headerText: 'Shop The Latest',
                 onSaleText: 'On Sale',
                 inStockText: 'In Stock',
-                productArr: [
-                    {
-                        name: 'Lira Earrings',
-                        price: 20,
-                        image: Img01,
-                        tags: '- %21',
-                    },
-                    {
-                        name: 'Hal Earrings',
-                        price: 25,
-                        image: Img02,
-                    },
-                    {
-                        name: 'Kaede Hair Pin Set Of 3',
-                        price: 30,
-                        image: Img03,
-                    },
-                    {
-                        name: 'Hair Pin Set of 3',
-                        price: 30,
-                        image: Img03,
-                    },
-                    {
-                        name: 'Plaine Necklace',
-                        price: 19,
-                        image: Img04,
-                        tags: 'Sold out',
-                    },
-                    {
-                        name: 'Yuki Hair Pin Set of 3',
-                        price: 29,
-                        image: Img05,
-                    },
-                ]
             }
         },
         methods: {
@@ -150,7 +112,16 @@
                 this.isSortDropdownOpen = isOpen;
                 if (isOpen) this.isShopDropdownOpen = false;
             },
-
+            navigateToShopDetail(id) {
+                console.log('id', id);
+                this.$router.push(`/shop/${id}`);
+            }
+        },
+        computed: {
+            ...mapGetters(['getAllProducts']),
+            products() {
+                return this.getAllProducts;
+            }
         }
     }
 </script>

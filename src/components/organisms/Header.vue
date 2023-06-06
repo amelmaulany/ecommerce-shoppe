@@ -1,24 +1,30 @@
 <template>
     <div class="header-bar">
-        <Logo />
+        <router-link to="/" @click="resetActiveMenu"><Logo /></router-link>
         <div class="btns-component">
             <div class="nav-button">
                 <div class="text-button">
-                    <TextButton
-                        :clicked="isShopActive"
-                        :buttonText="shopButton"
-                        @click="handleChangeShop"
-                    />
-                    <TextButton
-                        :clicked="isBlogActive"
-                        :buttonText="blogButton"
-                        @click="handleChangeBlog"
-                    />
-                    <TextButton 
-                        :clicked="isOurStoryActive"
-                        :buttonText="ourStoryButton"
-                        @click="handleChangeOurStory"
-                    />
+                    <router-link to="/shop">
+                        <TextButton
+                            :clicked="isShopActive"
+                            :buttonText="shopButton"
+                            @click="handleChangeShop"
+                        />
+                    </router-link>
+                    <router-link to="/blog">
+                        <TextButton
+                            :clicked="isBlogActive"
+                            :buttonText="blogButton"
+                            @click="handleChangeBlog"
+                        />
+                    </router-link>
+                    <router-link to="our-story">
+                        <TextButton 
+                            :clicked="isOurStoryActive"
+                            :buttonText="ourStoryButton"
+                            @click="handleChangeOurStory"
+                        />
+                    </router-link>
                 </div>
                 <div class="divider">&nbsp;</div>
                 <div class="icon-button">
@@ -229,10 +235,6 @@
         width: 1px;
         height: 50%;
         background-color: #707070;
-        /* margin: 0 30px; */
     }
-    /* .text-button .active {
-        text-decoration: underline;
-    } */
 
 </style>
