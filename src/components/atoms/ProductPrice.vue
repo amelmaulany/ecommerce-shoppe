@@ -16,7 +16,7 @@
 
 <style scoped>
     .product-name {
-        color: #A18A68;
+        color: var(--color-accent);
         font-size: 20px;
         font-weight: 500;
     }

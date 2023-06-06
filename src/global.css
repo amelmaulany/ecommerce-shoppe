@@ -1,0 +1,26 @@
+@import './colors.js';
+
+:root {
+    --color-accent: var(--main-accent);
+    --color-white: var(--main-white);
+    --color-black: var(--main-black);
+    --color-dark-gray: var(--neutral-dark-gray);
+    --color-gray: var(--neutral-gray);
+    --color-light-gray: var(--neutral-light-gray);
+    --color-errors: var(--service-errors);
+}
+
+[data-theme='dark'] {
+    --color-accent: var(--dark-main-accent);
+    --color-white: var(--dark-main-white);
+    --color-black: var(--dark-main-black);
+    --color-dark-gray: var(--dark-neutral-dark-gray);
+    --color-gray: var(--dark-neutral-gray);
+    --color-light-gray: var(--dark-neutral-light-gray);
+    --color-errors: var(--dark-service-errors);
+}
+
+.example-component {
+    background-color: var(themeColors-background);
+    color: var(--themeColors-font);
+}

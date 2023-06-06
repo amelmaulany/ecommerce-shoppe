@@ -1,6 +1,7 @@
 <template>
     <div class="header-bar">
         <router-link to="/" @click="resetActiveMenu"><Logo /></router-link>
+        <ThemeSwitcher />
         <div class="btns-component">
             <div class="nav-button">
                 <div class="text-button">
@@ -65,7 +66,6 @@
     </div>
 </template>
 
-
 <script>
 
     import UnderlineIconButton from '../molecules/UnderlineIconButton.vue';
@@ -76,6 +76,7 @@
     import Logo from '../molecules/Logo.vue';
     import TextButton from '../molecules/TextButton.vue';
     import MobileInputBar from '../molecules/MobileInputBar.vue';
+    import ThemeSwitcher from '../molecules/ThemeSwitcher.vue';
 
     export default {
         name: 'HeaderBar',
@@ -84,6 +85,7 @@
             Logo,
             TextButton,
             MobileInputBar,
+            ThemeSwitcher,
         },
         methods: {
             handleChangeShop() {

@@ -1,22 +1,46 @@
 <template>
-  <Header></Header>
-  <router-view></router-view>
-  <Footer></Footer>
+  <div :style="{ backgroundColor: themeColors.background, color: themeColors.font }">
+    <Header></Header>
+    <!-- <ThemeSwitcher /> -->
+    <router-view></router-view>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
 import Header from './components/organisms/Header.vue'
 import Footer from './components/organisms/Footer.vue'
-
-// import ShopPage from './pages/shop/index.vue';
+import { onMounted } from 'vue'
+import theme from './theme.js'
+// import ThemeSwitcher from './components/molecules/ThemeSwitcher.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    // ShopPage,
     Footer,
+    // ThemeSwitcher,
   },
+  computed: {
+    themeColors() {
+      if (theme.currentTheme === 'light') {
+        return {
+          background: 'white',
+          font: 'black',
+        };
+      } else {
+        return {
+          background: 'black',
+          font: 'white',
+        }
+      }
+    },
+  },
+  setup() {
+    onMounted(() => {
+      document.title = 'Shoppe Ecommerce'
+    })
+  }
 }
 </script>
 

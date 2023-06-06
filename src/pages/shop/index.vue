@@ -32,7 +32,7 @@
               v-for="product of products"
               :key="product.name" 
               :name="product.name"
-              :image="product.image"
+              :image="product.images[0].url"
               :price="product.price"
               :tags="product.tags"
               @click="navigateToShopDetail(product.id)"
