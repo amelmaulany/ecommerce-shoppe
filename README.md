@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Stack
+```
+vue v3.2.13
+vue-router v4.2.2
+vuex v4.0.2
+```
