@@ -1,4 +1,4 @@
-# proglix-shoppe-amel
+# ecommerce-shoppe
 
 ## Project setup
 ```
