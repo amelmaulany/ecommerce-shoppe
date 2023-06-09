@@ -12,5 +12,3 @@
         name: 'AccountIcon',
     })
 </script>
-
-<style></style>

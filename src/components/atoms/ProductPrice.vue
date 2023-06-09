@@ -1,5 +1,5 @@
 <template>
-    <p class="product-price">${{ text }}</p>
+    <p class="product-price">$ {{ text.toFixed(2) }}</p>
 </template>
 
 <script>
@@ -15,9 +15,9 @@
 </script>
 
 <style scoped>
-    .product-name {
-        color: var(--color-accent);
-        font-size: 20px;
+    .product-price {
+        color: #A18A68;
+        font-size: 16px;
         font-weight: 500;
     }
 </style>

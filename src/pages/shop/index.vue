@@ -53,7 +53,6 @@
 
     import ProductCard from '../../components/organisms/ProductCard.vue';
     import SearchIcon from '../../components/atoms/SearchIcon.vue';
-
     import { mapGetters } from 'vuex';
 
     export default {
@@ -118,8 +117,9 @@
             }
         },
         computed: {
-            ...mapGetters(['getAllProducts']),
+            ...mapGetters('product', ['getAllProducts']),
             products() {
+                console.log(this.getAllProducts);
                 return this.getAllProducts;
             }
         }

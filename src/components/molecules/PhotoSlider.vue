@@ -52,6 +52,7 @@
         display: flex;
         flex-direction: row;
         width: fit-content;
+        width: 60%;
     }
     .mini-photos {
         display: flex;

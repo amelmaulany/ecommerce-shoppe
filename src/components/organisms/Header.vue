@@ -1,7 +1,7 @@
 <template>
     <div class="header-bar">
         <router-link to="/" @click="resetActiveMenu"><Logo /></router-link>
-        <ThemeSwitcher />
+        <!-- <ThemeSwitcher /> -->
         <div class="btns-component">
             <div class="nav-button">
                 <div class="text-button">
@@ -27,7 +27,8 @@
                         />
                     </router-link>
                 </div>
-                <div class="divider">&nbsp;</div>
+                <!-- <div class="divider">&nbsp;</div> -->
+                <vertical-divider />
                 <div class="icon-button">
                     <UnderlineIconButton
                         :icon="SearchIcon"
@@ -76,7 +77,8 @@
     import Logo from '../molecules/Logo.vue';
     import TextButton from '../molecules/TextButton.vue';
     import MobileInputBar from '../molecules/MobileInputBar.vue';
-    import ThemeSwitcher from '../molecules/ThemeSwitcher.vue';
+    import VerticalDivider from '../atoms/VerticalDivider.vue';
+    // import ThemeSwitcher from '../molecules/ThemeSwitcher.vue';
 
     export default {
         name: 'HeaderBar',
@@ -85,7 +87,8 @@
             Logo,
             TextButton,
             MobileInputBar,
-            ThemeSwitcher,
+            VerticalDivider,
+            // ThemeSwitcher,
         },
         methods: {
             handleChangeShop() {

@@ -34,7 +34,7 @@
     }
 </script>
 
-<style>
+<style scoped>
  .button-component {
     background-color: transparent;
     padding: 40px;
